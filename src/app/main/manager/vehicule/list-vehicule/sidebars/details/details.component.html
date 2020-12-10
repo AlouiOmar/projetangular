@@ -1,0 +1,85 @@
+<!-- SIDEBAR HEADER -->
+<div class="header accent p-24" fxLayout="column" fxLayoutAlign="space-between">
+
+    <div class="toolbar" fxLayout="row" fxLayoutAlign="end center">
+
+        <button mat-icon-button (click)="deleteVehicule(selected.id)" matTooltip="Delete">
+            <mat-icon>delete</mat-icon>
+        </button>
+
+        <button mat-icon-button class="" routerLink="/manager/vehicule/edit/{{selected.id}}" aria-label="Edit" matTooltip="Download">
+            <mat-icon>edit</mat-icon>
+        </button>
+
+
+    </div>
+
+    <div>
+        <div class="title mb-8">{{selected.name}}</div>
+        <div class="subtitle secondary-text">
+            <span>Edited</span>
+            <span>: {{selected.updatedAt}}</span>
+        </div>
+    </div>
+</div>
+<!-- / SIDEBAR HEADER -->
+
+<!-- SIDEBAR CONTENT -->
+<div class="content p-24" fusePerfectScrollbar>
+
+    <div class="file-details" [@animate]="{value:'*',params:{delay:'200ms'}}">
+
+        <div class="preview file-icon" fxLayout="row" fxLayoutAlign="center center">
+            <mat-icon class="type-icon s-48" [ngClass]="folder"></mat-icon>
+        </div>
+
+      <!--  <div class="offline-switch">
+            <mat-slide-toggle [(ngModel)]="selected.offline" labelPosition="before">Available Offline</mat-slide-toggle>
+        </div>-->
+
+        <div class="title">Info</div>
+
+        <table>
+            <tr class="type">
+                <th>id</th>
+                <td>{{selected.id}}</td>
+            </tr>
+
+            <tr class="size">
+                <th>Brand</th>
+                <td>{{selected.brand === '' ? '-': selected.brand}}</td>
+            </tr>
+
+            <tr class="location">
+                <th>Model</th>
+                <td>{{selected.model === '' ? '-': selected.model}}</td>
+            </tr>
+
+            <tr class="owner">
+                <th>Kilometers</th>
+                <td>{{selected.kilometers === '' ? '-': selected.kilometers}}</td>
+            </tr>
+
+            <tr class="modified">
+                <th>Date of acquisition</th>
+                <td>{{selected.acquisitionDate === '' ? '-': selected.acquisitionDate}}</td>
+            </tr>
+
+            <tr class="opened">
+                <th>Doors</th>
+                <td>{{selected.doors === '' ? '-': selected.doors}}</td>
+            </tr>
+
+            <tr class="created">
+                <th>Seats</th>
+                <td>{{selected.seats === '' ? '-': selected.seats}}</td>
+            </tr>
+            <tr class="created">
+                <th>Fuel consumption (Urban)</th>
+                <td>{{selected.fuelConsumptionUrban === '' ? '-': selected.fuelConsumptionUrban}}</td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+<!-- / SIDEBAR CONTENT -->

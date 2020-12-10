@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-dashboard',

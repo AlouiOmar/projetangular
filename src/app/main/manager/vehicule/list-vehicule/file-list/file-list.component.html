@@ -1,0 +1,81 @@
+<mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+<mat-table #table [dataSource]="dataSource" >
+
+
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="brand">
+        <mat-header-cell *matHeaderCellDef>Brand</mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.brand}}</mat-cell>
+    </ng-container>
+
+    <!-- Type Column -->
+    <ng-container matColumnDef="model">
+        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-md>Model</mat-header-cell>
+        <mat-cell *matCellDef="let row" fxHide fxShow.gt-md> {{row.model}}</mat-cell>
+    </ng-container>
+
+    <!-- Owner Column -->
+    <ng-container matColumnDef="kilometers">
+        <mat-header-cell *matHeaderCellDef fxHide.xs>Kilometers</mat-header-cell>
+        <mat-cell *matCellDef="let row" fxHide.xs> {{row.kilometers}}</mat-cell>
+    </ng-container>
+
+    <!-- Size Column -->
+    <ng-container matColumnDef="acquisitionDate">
+        <mat-header-cell *matHeaderCellDef fxHide.xs>Date of acquisition</mat-header-cell>
+        <mat-cell *matCellDef="let row" fxHide.xs>{{row.acquisitionDate  === '' ? '-': row.acquisitionDate | date}}</mat-cell>
+    </ng-container>
+
+    <!-- Modified Column -->
+    <ng-container matColumnDef="fuelType">
+        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-md>Fuel type</mat-header-cell>
+        <mat-cell *matCellDef="let row" fxHide fxShow.gt-md>{{row.fuelType}}</mat-cell>
+    </ng-container>
+
+    <!-- Modified Column -->
+    <ng-container matColumnDef="fuelConsumptionUrban">
+        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-md>Fuel consumption (Urban)</mat-header-cell>
+        <mat-cell *matCellDef="let row" fxHide fxShow.gt-md>{{row.fuelConsumptionUrban}}</mat-cell>
+    </ng-container>
+
+    <!-- Modified Column -->
+    <ng-container matColumnDef="numberCylinders">
+        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-md>Number of cylinders</mat-header-cell>
+        <mat-cell *matCellDef="let row" fxHide fxShow.gt-md>{{row.numberCylinders}}</mat-cell>
+    </ng-container>
+
+    <!-- Modified Column -->
+    <ng-container matColumnDef="seats">
+        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-md>Number of seats</mat-header-cell>
+        <mat-cell *matCellDef="let row" fxHide fxShow.gt-md>{{row.seats}}</mat-cell>
+    </ng-container>
+
+    <!-- Modified Column -->
+    <ng-container matColumnDef="doors">
+        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-md>Number of doors</mat-header-cell>
+        <mat-cell *matCellDef="let row" fxHide fxShow.gt-md>{{row.doors}}</mat-cell>
+    </ng-container>
+
+    <!-- Detail Button Column -->
+    <ng-container matColumnDef="detail-button">
+        <mat-header-cell *matHeaderCellDef fxFlex="48px" fxHide.gt-md></mat-header-cell>
+        <mat-cell *matCellDef="let row" fxFlex="48px" fxHide.gt-md>
+            <button mat-icon-button class="sidebar-toggle" fxHide.gt-md
+                    (click)="toggleSidebar('file-manager-details-sidebar')">
+                <mat-icon class="secondary-text">info</mat-icon>
+            </button>
+        </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"
+             (click)="onSelect(row)"
+             [ngClass]="{'selected' : row == selected}"
+             matRipple [@animate]="{value:'*',params:{y:'100%'}}"
+    >
+    </mat-row>
+</mat-table>
+<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
