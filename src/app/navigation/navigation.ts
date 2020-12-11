@@ -89,6 +89,13 @@ export const navigation: FuseNavigation[] = [
                     }
                 ]
             },
+            {
+                id       : 'logout',
+                title    : 'Logout',
+                type     : 'item',
+                icon     : 'exit_to_app',
+                url      : 'logout'
+            },
         ]
     }
 ];

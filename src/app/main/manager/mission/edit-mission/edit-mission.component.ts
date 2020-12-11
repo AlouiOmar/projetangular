@@ -1,19 +1,25 @@
+import { MissionService } from './../service/mission.service';
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, FormControl,Validators} from "@angular/forms";
 import {Subject} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
-import {VehiculeService} from "../../vehicule/service/vehicule.service";
-
+import { Mission } from '../model/mission';
+import { DateAdapter } from '@angular/material';
+import { DatePipe } from '@angular/common';
+import {Router} from "@angular/router"
 @Component({
   selector: 'app-edit-mission',
   templateUrl: './edit-mission.component.html',
-  styleUrls: ['./edit-mission.component.scss']
+  styleUrls: ['./edit-mission.component.scss'],
+  providers: [DatePipe]
 })
    export class EditMissionComponent implements OnInit, OnDestroy
 {
     form: FormGroup;
 
     myId: any;
+    book : Mission;
+    date: Date;
 
     // Private
     private _unsubscribeAll: Subject<any>;
@@ -28,8 +34,10 @@ import {VehiculeService} from "../../vehicule/service/vehicule.service";
     constructor(
         private route: ActivatedRoute,
 
-        private vehiculeService: VehiculeService,
-        private _formBuilder: FormBuilder
+        private missionService: MissionService,
+        private _formBuilder: FormBuilder,
+        private datepipe: DatePipe,
+        private router: Router
     )
     {
         this.myId = this.route.snapshot.paramMap.get('id');
@@ -47,35 +55,36 @@ import {VehiculeService} from "../../vehicule/service/vehicule.service";
      */
     ngOnInit(): void
     {
+
+        
         // Reactive Form
+        
         this.form = this._formBuilder.group({
-            id   : [
-                {
-                    value   : this.myId,
-                    disabled: true
-                }, Validators.required
-            ],
-            brand : ['', Validators.required],
-            model  : ['', Validators.required],
-            kilometers   : ['', Validators.required],
-            acquisitionDate  : ['', Validators.required],
-            fuelType      : ['', Validators.required],
-            numberCylinders      : ['', Validators.required],
-            numberPlate      : ['', Validators.required],
-            doors     : ['', Validators.required],
-            seats: ['', [Validators.required, Validators.maxLength(5)]],
-            fuelConsumptionUrban   : ['', Validators.required]
+            
+            id : [this.myId, Validators.required],
+            name  : new FormControl('', Validators.required) ,
+            category   : ['', Validators.required],
+            date  : [new Date(), Validators.required],
+            description      : ['', Validators.required],
+            author      : ['', Validators.required],
+            
         });
 
-
-        this.vehiculeService.getDataById(this.myId).subscribe(data => {
+        this.missionService.getDataById(this.myId).subscribe(data => {
             console.log(data);
-            delete(data.createdAt);
-            delete(data.createdBy);
-            delete(data.updatedAt);
-            delete(data.updatedBy);
+            this.book=data;
+            this.form.controls['id'].setValue(this.book.id);
+            this.form.controls['name'].setValue(this.book.name);
+            this.form.controls['category'].setValue(this.book.category);
+            this.date = new Date(this.book.date);
+            let dd=this.datepipe.transform(this.book.date, 'MM/dd/yyyy');
+            console.log(dd);
+            this.form.controls['date'].setValue(dd);
+            this.form.controls['description'].setValue(this.book.description);
+            this.form.controls['author'].setValue(this.book.author);
             this.form.setValue(data);
         });
+        
 
 
     }
@@ -96,7 +105,10 @@ import {VehiculeService} from "../../vehicule/service/vehicule.service";
     onSubmit(data): void {
         console.log(data);
         data.id = this.myId;
-        this.vehiculeService.putData(data, this.myId).subscribe((resp) => console.log(resp));
+        this.missionService.putData(data, this.myId).subscribe((resp) => {
+        console.log(resp);
+        this.router.navigate(['/manager/mission/list']);
+     } );
         console.warn('Your vehicule has been updated', data);
     }
 

@@ -1,3 +1,4 @@
+import { UserService } from 'app/services/user.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -34,7 +35,8 @@ export class ListManagerDetailsSidebarComponent implements OnInit, OnDestroy
         private _fileManagerService: FileManagerService,
         private missionService: MissionService,
         public _matDialog: MatDialog,
-        private _location: Location
+        private _location: Location,
+        private userService: UserService
 
     )
     {
@@ -78,6 +80,7 @@ export class ListManagerDetailsSidebarComponent implements OnInit, OnDestroy
 
     deleteVehicule(id): void
     {
+        console.log(this.userService.getUserDetails());
         this.confirmDialogRef = this._matDialog.open(FuseConfirmDialogComponent, {
             disableClose: false
         });

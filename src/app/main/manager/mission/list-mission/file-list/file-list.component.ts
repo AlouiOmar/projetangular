@@ -25,7 +25,7 @@ export class ManagerFileListComponent implements OnInit, OnDestroy {
     @ViewChild(MatSort, {static: true}) sort: MatSort;
     files: any;
     dataSource: MatTableDataSource<Mission>;
-    displayedColumns = [/*'icon',*/ 'brand', 'model', 'acquisitionDate', 'kilometers', 'fuelType', 'fuelConsumptionUrban', 'numberCylinders', 'seats', 'doors'];
+    displayedColumns = [/*'icon',*/ 'brand', 'model', 'acquisitionDate', 'kilometers', 'fuelType', 'fuelConsumptionUrban'];
     selected: any;
     data: any[];
 

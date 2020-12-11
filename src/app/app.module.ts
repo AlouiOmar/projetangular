@@ -1,3 +1,7 @@
+import { AuthGuard } from './services/auth-guard.service';
+import { LogoutModule } from './logout/logout.module';
+import { LoginModule } from './login/login.module';
+import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -23,16 +27,20 @@ const appRoutes: Routes = [
 
     {
         path        : 'manager',
-        loadChildren: './main/manager/manager.module#ManagerModule'
+        loadChildren: './main/manager/manager.module#ManagerModule', canActivate: [AuthGuard]
     },
     {
         path        : 'driver',
-        loadChildren: './main/driver/driver.module#DriverModule'
+        loadChildren: './main/driver/driver.module#DriverModule', canActivate: [AuthGuard]
     },
     {
         path        : 'errors',
-        loadChildren: './main/errors/errors.module#ErrorsModule'
+        loadChildren: './main/errors/errors.module#ErrorsModule', canActivate: [AuthGuard]
     },
+    // {
+    //     path        : 'login',
+    //     component: LoginComponent
+    // },
 /*    {
         path      : '**',
         redirectTo: 'errors/error-404'
@@ -44,6 +52,9 @@ const appRoutes: Routes = [
         AppComponent
     ],
     imports     : [
+        
+        LoginModule,
+        LogoutModule,
         BrowserModule,
         BrowserAnimationsModule,
         HttpClientModule,
@@ -69,6 +80,7 @@ const appRoutes: Routes = [
         LayoutModule,
 
     ],
+    providers: [AuthGuard],
     bootstrap   : [
         AppComponent
     ]

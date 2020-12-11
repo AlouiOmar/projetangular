@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import {Subject} from 'rxjs';
 import {MissionService} from '../service/mission.service';
 import * as L from 'leaflet';
@@ -55,32 +55,13 @@ export class AddMissionComponent implements OnInit, OnDestroy , AfterViewInit{
 
         // Reactive Form
         this.form = this._formBuilder.group({
-            id   : [
-                {
-                    value   : this.myId,
-                    disabled: true
-                }, Validators.required
-            ],
-            typeMission : ['', Validators.required],
-            description  : ['', Validators.required],
-            note   : ['', Validators.required],
-            missionDate  : ['', Validators.required],
-            destinationLat      : [   {
-                value   : this.lat,
-
-                disabled: true
-            }, Validators.required],
-
-            destinationLng      : [   {
-                value   : this.lng,
-
-                disabled: true
-            }, Validators.required],
-
-
-            destinationAddress      : ['', Validators.required],
-            vehiculeId     : [''],
-            driverId: [''],
+            
+            id : [this.myId, Validators.required],
+            name  : new FormControl('', Validators.required) ,
+            category   : ['', Validators.required],
+            date  : [new Date(), Validators.required],
+            description      : ['', Validators.required],
+            author      : ['', Validators.required],
         });
         this.lat = 36.806389;
         this.lng = 10.181667;

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-const url = '/api/mission-management/mission/';
+const url = 'http://localhost:3000/books/';
 
 @Injectable({
     providedIn: 'root'

@@ -8,56 +8,40 @@
     <!-- Name Column -->
     <ng-container matColumnDef="brand">
         <mat-header-cell *matHeaderCellDef>Brand</mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.brand}}</mat-cell>
+        <mat-cell *matCellDef="let row"> {{row.id}}</mat-cell>
     </ng-container>
 
     <!-- Type Column -->
     <ng-container matColumnDef="model">
-        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-md>Model</mat-header-cell>
-        <mat-cell *matCellDef="let row" fxHide fxShow.gt-md> {{row.model}}</mat-cell>
+        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-md>Nom</mat-header-cell>
+        <mat-cell *matCellDef="let row" fxHide fxShow.gt-md> {{row.name}}</mat-cell>
     </ng-container>
 
     <!-- Owner Column -->
     <ng-container matColumnDef="kilometers">
-        <mat-header-cell *matHeaderCellDef fxHide.xs>Kilometers</mat-header-cell>
-        <mat-cell *matCellDef="let row" fxHide.xs> {{row.kilometers}}</mat-cell>
+        <mat-header-cell *matHeaderCellDef fxHide.xs>Catégorie</mat-header-cell>
+        <mat-cell *matCellDef="let row" fxHide.xs> {{row.category}}</mat-cell>
     </ng-container>
 
     <!-- Size Column -->
     <ng-container matColumnDef="acquisitionDate">
-        <mat-header-cell *matHeaderCellDef fxHide.xs>Date of acquisition</mat-header-cell>
-        <mat-cell *matCellDef="let row" fxHide.xs>{{row.acquisitionDate  === '' ? '-': row.acquisitionDate | date}}</mat-cell>
+        <mat-header-cell *matHeaderCellDef fxHide.xs>Date de publication</mat-header-cell>
+        <mat-cell *matCellDef="let row" fxHide.xs>{{row.date  === '' ? '-': row.date | date}}</mat-cell>
     </ng-container>
 
     <!-- Modified Column -->
     <ng-container matColumnDef="fuelType">
-        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-md>Fuel type</mat-header-cell>
-        <mat-cell *matCellDef="let row" fxHide fxShow.gt-md>{{row.fuelType}}</mat-cell>
+        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-md>Description</mat-header-cell>
+        <mat-cell *matCellDef="let row" fxHide fxShow.gt-md>{{row.description}}</mat-cell>
     </ng-container>
 
     <!-- Modified Column -->
     <ng-container matColumnDef="fuelConsumptionUrban">
-        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-md>Fuel consumption (Urban)</mat-header-cell>
-        <mat-cell *matCellDef="let row" fxHide fxShow.gt-md>{{row.fuelConsumptionUrban}}</mat-cell>
+        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-md>Auteur</mat-header-cell>
+        <mat-cell *matCellDef="let row" fxHide fxShow.gt-md>{{row.author}}</mat-cell>
     </ng-container>
 
-    <!-- Modified Column -->
-    <ng-container matColumnDef="numberCylinders">
-        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-md>Number of cylinders</mat-header-cell>
-        <mat-cell *matCellDef="let row" fxHide fxShow.gt-md>{{row.numberCylinders}}</mat-cell>
-    </ng-container>
-
-    <!-- Modified Column -->
-    <ng-container matColumnDef="seats">
-        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-md>Number of seats</mat-header-cell>
-        <mat-cell *matCellDef="let row" fxHide fxShow.gt-md>{{row.seats}}</mat-cell>
-    </ng-container>
-
-    <!-- Modified Column -->
-    <ng-container matColumnDef="doors">
-        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-md>Number of doors</mat-header-cell>
-        <mat-cell *matCellDef="let row" fxHide fxShow.gt-md>{{row.doors}}</mat-cell>
-    </ng-container>
+   
 
     <!-- Detail Button Column -->
     <ng-container matColumnDef="detail-button">
