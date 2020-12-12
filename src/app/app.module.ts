@@ -1,3 +1,4 @@
+import { StatModule } from './main/manager/stat/stat.module';
 import { AuthGuard } from './services/auth-guard.service';
 import { LogoutModule } from './logout/logout.module';
 import { LoginModule } from './login/login.module';
@@ -22,6 +23,7 @@ import { fuseConfig } from 'app/fuse-config';
 import { AppComponent } from 'app/app.component';
 import { LayoutModule } from 'app/layout/layout.module';
 import {ErrorsModule} from './main/errors/errors.module';
+import { StatComponent } from './main/manager/stat/stat.component';
 
 const appRoutes: Routes = [
 
@@ -33,9 +35,13 @@ const appRoutes: Routes = [
         path        : 'driver',
         loadChildren: './main/driver/driver.module#DriverModule', canActivate: [AuthGuard]
     },
+    // {
+    //     path        : 'stat',
+    //     loadChildren: './main/stat/stat.module#StatModule', canActivate: [AuthGuard]
+    // },
     {
         path        : 'errors',
-        loadChildren: './main/errors/errors.module#ErrorsModule', canActivate: [AuthGuard]
+        loadChildren: './main/errors/errors.module#ErrorsModule'
     },
     // {
     //     path        : 'login',
@@ -49,12 +55,14 @@ const appRoutes: Routes = [
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        //StatComponent
     ],
     imports     : [
         
         LoginModule,
         LogoutModule,
+        StatModule,
         BrowserModule,
         BrowserAnimationsModule,
         HttpClientModule,

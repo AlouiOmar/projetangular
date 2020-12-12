@@ -30,6 +30,10 @@ const appRoutes: Routes = [
         path        : 'driver',
         loadChildren: './driver/driver.module#DriverModule'
     },
+    {
+        path        : 'stat',
+        loadChildren: './stat/stat.module#StatModule'
+    }
 
 
     /*    {

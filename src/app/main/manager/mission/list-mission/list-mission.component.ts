@@ -45,6 +45,7 @@ import {FuseSidebarService} from "../../../../../@fuse/components/sidebar/sideba
                 this.selected = selected;
                 this.pathArr = selected.location.split('>');
             });*/
+            
     }
 
     /**

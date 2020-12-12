@@ -90,6 +90,13 @@ export const navigation: FuseNavigation[] = [
                 ]
             },
             {
+                id       : 'stat',
+                title    : 'Statistique',
+                type     : 'item',
+                icon     : 'pie_chart',
+                url      : 'stat'
+            },
+            {
                 id       : 'logout',
                 title    : 'Logout',
                 type     : 'item',
