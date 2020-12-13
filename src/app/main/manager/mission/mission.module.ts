@@ -1,9 +1,11 @@
+import { MatMenuModule } from '@angular/material/menu';
+import { DetailMissionComponent } from './detail-mission/detail-mission.component';
+import { AfficheDetailComponent } from './../mission/affiche-detail/affiche-detail.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AddMissionComponent } from './add-mission/add-mission.component';
 import { EditMissionComponent } from './edit-mission/edit-mission.component';
 import { ListMissionComponent } from './list-mission/list-mission.component';
-import { DetailMissionComponent } from './detail-mission/detail-mission.component';
 import {RouterModule, Routes} from '@angular/router';
 
 import {FuseSharedModule} from '../../../../@fuse/shared.module';
@@ -35,7 +37,7 @@ const routes: Routes = [
 
     },
     {
-        path     : 'detail',
+        path     : 'detail/:id',
         component: DetailMissionComponent,
 
     },
@@ -48,7 +50,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AddMissionComponent, EditMissionComponent, ListMissionComponent, DetailMissionComponent,
+  declarations: [AddMissionComponent, EditMissionComponent, ListMissionComponent,AfficheDetailComponent,DetailMissionComponent,
       ListManagerMainSidebarComponent,
       ListManagerDetailsSidebarComponent,
       ManagerFileListComponent],
@@ -59,6 +61,7 @@ const routes: Routes = [
       FuseSharedModule,
       MatButtonModule,
       MatIconModule,
+      MatMenuModule,
       MatRippleModule,
       MatSlideToggleModule,
       MatTableModule,
