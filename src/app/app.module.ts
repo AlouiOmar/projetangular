@@ -32,22 +32,12 @@ const appRoutes: Routes = [
         path        : 'manager',
         loadChildren: './main/manager/manager.module#ManagerModule', canActivate: [AuthGuard]
     },
-    // {
-    //     path        : 'stat',
-    //     loadChildren: './main/stat/stat.module#StatModule', canActivate: [AuthGuard]
-    // },
+
     {
         path        : 'errors',
         loadChildren: './main/errors/errors.module#ErrorsModule'
     },
-    // {
-    //     path        : 'login',
-    //     component: LoginComponent
-    // },
-/*    {
-        path      : '**',
-        redirectTo: 'errors/error-404'
-    },*/
+
 ];
 
 @NgModule({

@@ -68,7 +68,7 @@
 
                     <mat-form-field appearance="outline" fxFlex="100">
                         <mat-label>Date of publication</mat-label>
-                        <input matInput [matDatepicker]="picker" formControlName="date" [(ngModel)]="date" placeholder="Choisir une date">
+                        <input matInput [matDatepicker]="picker" formControlName="date" [(ngModel)]="date" placeholder="Choisir une date" required>
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                         <textarea matInput formControlName="acquisitionDate"></textarea>

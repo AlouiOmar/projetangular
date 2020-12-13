@@ -25,7 +25,7 @@ export class ManagerBookListComponent implements OnInit, OnDestroy {
     @ViewChild(MatSort, {static: true}) sort: MatSort;
     books: any;
     dataSource: MatTableDataSource<Book>;
-    displayedColumns = [/*'icon',*/  'model', 'acquisitionDate', 'kilometers', 'fuelType', 'fuelConsumptionUrban'];
+    displayedColumns = [/*'icon',*/  'title', 'date', 'genre', 'description', 'author'];
     selected: any;
     data: any[];
 
