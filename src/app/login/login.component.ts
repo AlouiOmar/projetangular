@@ -1,10 +1,10 @@
+import { UserService } from 'app/shared/user.service';
 import { Router } from '@angular/router';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { FuseConfigService } from '@fuse/services/config.service';
 import { fuseAnimations } from '@fuse/animations';
-import { UserService } from 'app/services/user.service';
 
 @Component({
     selector     : 'login',
@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit
             
             console.log(resp)
             if(resp ==true)
-            this.router.navigate(['/manager/mission/list']);
+            this.router.navigate(['/manager/book/list']);
         });
 
     }

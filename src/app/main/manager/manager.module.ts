@@ -18,17 +18,10 @@ import {ErrorsModule} from '../errors/errors.module';
 
 const appRoutes: Routes = [
 
+   
     {
-        path        : 'vehicule',
-        loadChildren: './vehicule/vehicule.module#VehiculeModule'
-    },
-    {
-        path        : 'mission',
-        loadChildren: './mission/mission.module#MissionModule'
-    },
-    {
-        path        : 'driver',
-        loadChildren: './driver/driver.module#DriverModule'
+        path        : 'book',
+        loadChildren: './book/book.module#BookModule'
     },
     {
         path        : 'stat',

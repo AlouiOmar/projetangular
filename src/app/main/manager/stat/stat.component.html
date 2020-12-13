@@ -11,14 +11,13 @@
 
         <!-- HEADER -->
         <div class="header accent p-24" fxLayout="column" fxLayoutAlign="space-between start">
-
-          
+          <h1>Statistics</h1>
 
             <!-- BREADCRUMB -->
             <div class="breadcrumb text-truncate h1 pl-72" fxLayout="row" fxLayoutAlign="start center"
                  [@animate]="{value:'*',params:{x:'50px'}}">
                 <div *ngFor="let path of pathArr; last  as isLast" fxLayout="row" fxLayoutAlign="start center">
-                    <span>{{path}}</span>
+                    <span></span>
                     <mat-icon *ngIf="!isLast" class="separator">chevron_right</mat-icon>
                 </div>
             </div>
@@ -30,7 +29,10 @@
 
         <!-- CONTENT -->
         <div class="content" fusePerfectScrollbar>
-            <div class="center" fxFlex>
+            <div fxLayout="column" fxLayoutAlign="center">
+                <h2>statistics per genre</h2>
+                <div class="filters" fxLayout="column" fxLayoutAlign="center center">
+                    
             <div id="chart">
                 <apx-chart
                   [series]="chartOptions.series"
@@ -38,7 +40,7 @@
                   [labels]="chartOptions.labels"
                   [responsive]="chartOptions.responsive"
                 ></apx-chart>
-              </div>
+              </div></div>
               </div>
         </div>
         <!-- / CONTENT -->

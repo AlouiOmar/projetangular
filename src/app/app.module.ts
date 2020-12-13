@@ -1,6 +1,6 @@
 import { RegisterModule } from './register/register.module';
 import { StatModule } from './main/manager/stat/stat.module';
-import { AuthGuard } from './services/auth-guard.service';
+import { AuthGuard } from './shared/auth-guard.service';
 import { LogoutModule } from './logout/logout.module';
 import { LoginModule } from './login/login.module';
 import { LoginComponent } from './login/login.component';
@@ -31,10 +31,6 @@ const appRoutes: Routes = [
     {
         path        : 'manager',
         loadChildren: './main/manager/manager.module#ManagerModule', canActivate: [AuthGuard]
-    },
-    {
-        path        : 'driver',
-        loadChildren: './main/driver/driver.module#DriverModule', canActivate: [AuthGuard]
     },
     // {
     //     path        : 'stat',

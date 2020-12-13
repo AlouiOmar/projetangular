@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { FuseConfigService } from '@fuse/services/config.service';
 import { fuseAnimations } from '@fuse/animations';
-import { UserService } from 'app/services/user.service';
+import { UserService } from 'app/shared/user.service';
 
 @Component({
     selector     : 'logout',

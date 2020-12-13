@@ -8,90 +8,30 @@ export const navigation: FuseNavigation[] = [
         type     : 'group',
         children : [
             {
-                id       : 'dashboards',
-                title    : 'Dashboards',
-               // translate: 'NAV.DASHBOARDS',
-                type     : 'collapsable',
-                icon     : 'dashboard',
-                children : [
-                    {
-                        id   : 'analytics',
-                        title: 'Analytics',
-                        type : 'item',
-                        url  : '/apps/dashboards/analytics'
-                    },
-
-                ]
-            },
-            {
-                id       : 'missions',
-                title    : 'Missions',
+                id       : 'books',
+                title    : 'Books',
                 // translate: 'NAV.SAMPLE',
                 type     : 'collapsable',
                 icon     : 'school',
                 children : [
                     {
-                        id   : 'addmission',
-                        title: 'Add Mission',
+                        id   : 'addbook',
+                        title: 'Add Book',
                         type : 'item',
-                        url  : '/manager/mission/add'
+                        url  : '/manager/book/add'
                     },
 
                     {
-                        id   : 'listmission',
-                        title: 'List Missions',
+                        id   : 'listbook',
+                        title: 'List Books',
                         type : 'item',
-                        url  : '/manager/mission/list'
-                    }
-                ]
-            },
-            {
-                id       : 'driver',
-                title    : 'Driver',
-                // translate: 'NAV.SAMPLE',
-                type     : 'collapsable',
-                icon     : 'person',
-                children : [
-                    {
-                        id   : 'adddriver',
-                        title: 'Add Driver',
-                        type : 'item',
-                        url  : '/manager/driver/add'
-                    },
-
-                    {
-                        id   : 'listdriver',
-                        title: 'List Drivers',
-                        type : 'item',
-                        url  : '/manager/driver/list'
-                    }
-                ]
-            },
-            {
-                id       : 'vehicule',
-                title    : 'Vehicule',
-                // translate: 'NAV.SAMPLE',
-                type     : 'collapsable',
-                icon     : 'commute',
-                children : [
-                    {
-                        id   : 'addvehicule',
-                        title: 'Add Vehicule',
-                        type : 'item',
-                        url  : '/manager/vehicule/add'
-                    },
-
-                    {
-                        id   : 'listvehicule',
-                        title: 'List Vehicules',
-                        type : 'item',
-                        url  : '/manager/vehicule/list'
+                        url  : '/manager/book/list'
                     }
                 ]
             },
             {
                 id       : 'stat',
-                title    : 'Statistique',
+                title    : 'Statistics',
                 type     : 'item',
                 icon     : 'pie_chart',
                 url      : 'stat'
