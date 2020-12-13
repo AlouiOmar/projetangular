@@ -81,7 +81,14 @@ export class ListManagerDetailsSidebarComponent implements OnInit, OnDestroy
     deleteVehicule(id): void
     {
         console.log(this.userService.getUserDetails());
-        //console.log(this.missionService.getStat());
+        // this.userService.register({
+          
+        //     "name": "Ore",
+        //     "email": "oarter9@.com",
+        //     "password": "b",
+            
+        //   });
+        console.log(this.missionService.search('Fantastique'));
         this.confirmDialogRef = this._matDialog.open(FuseConfirmDialogComponent, {
             disableClose: false
         });

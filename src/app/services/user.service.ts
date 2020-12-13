@@ -47,11 +47,21 @@ public isLoggedIn(): boolean {
   }
 }
 
+public register(data): any{
+  // console.log(data)
+  return this.http.post(url, data).subscribe(data => {console.log(data)
+    localStorage.setItem("user",JSON.stringify(data));
+    this.router.navigate(['/manager/mission/list']);
+  });
+}
 
 getUserDetails(){
   return JSON.parse(localStorage.getItem("user"));
 }
 
+setUserDetails(data){
+  localStorage.setItem("user",JSON.stringify(data));
+}
 
 logout(){
   this.user=null;

@@ -1,3 +1,5 @@
+import { SearchModernComponent } from './search/modern/search-modern.component';
+import { SearchModernModule } from './search/modern/search-modern.module';
 import { MatMenuModule } from '@angular/material/menu';
 import { DetailMissionComponent } from './detail-mission/detail-mission.component';
 import { AfficheDetailComponent } from './../mission/affiche-detail/affiche-detail.component';
@@ -46,11 +48,16 @@ const routes: Routes = [
         component: EditMissionComponent,
 
     },
+    {
+        path     : 'search/:key',
+        component: SearchModernComponent,
+
+    }
 
 ];
 
 @NgModule({
-  declarations: [AddMissionComponent, EditMissionComponent, ListMissionComponent,AfficheDetailComponent,DetailMissionComponent,
+  declarations: [AddMissionComponent, EditMissionComponent, ListMissionComponent,AfficheDetailComponent,DetailMissionComponent,SearchModernComponent,
       ListManagerMainSidebarComponent,
       ListManagerDetailsSidebarComponent,
       ManagerFileListComponent],

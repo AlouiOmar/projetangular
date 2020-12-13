@@ -74,4 +74,22 @@ export class MissionService {
          
          return JSON.parse(localStorage.getItem("tab"));
     }
+
+
+    search(data){
+        const books = this.http.get<Mission[]>(url);
+        let tab:Mission[]=[];
+        books.subscribe( books => {
+            for( var book of books){
+                if(book.name === data || book.author === data || book.category === data || book.date === data || book.description === data){
+                        tab.push(book)
+                }
+                
+            }
+            localStorage.setItem("tab1",JSON.stringify(tab));
+        });
+        return JSON.parse(localStorage.getItem("tab1"));
+    }
+
+
 }

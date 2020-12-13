@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Gazella granti",
       "category": "Policier",
-      "date": "1/8/2020",
+      "date": "2020-12-16T23:00:00.000Z",
       "description": "Other cholecystostomy",
       "author": "Lissie Aylin"
     },
@@ -788,83 +788,117 @@
   "users": [
     {
       "id": 1,
-      "first_name": "Cody",
-      "last_name": "Kull",
+      "name": "Cody Kull",
       "email": "ckull0@hubpages.com",
-      "password": "13mwhRqighz",
-      "role": false
+      "password": "13mwhRqighz"
     },
     {
       "id": 2,
-      "first_name": "Winnah",
-      "last_name": "Caush",
+      "name": "Winnah Caush",
       "email": "a@a",
-      "password": "a",
-      "role": true
+      "password": "a"
     },
     {
       "id": 3,
-      "first_name": "Kessia",
-      "last_name": "Doogan",
+      "name": "Kessia Doogan",
       "email": "kdoogan2@uiuc.edu",
-      "password": "Q62vzxy8U9",
-      "role": false
+      "password": "Q62vzxy8U9"
     },
     {
       "id": 4,
-      "first_name": "Toddie",
-      "last_name": "Martina",
+      "name": "Toddie Martina",
       "email": "tmartina3@ucla.edu",
-      "password": "aA7dctr29NG",
-      "role": true
+      "password": "aA7dctr29NG"
     },
     {
       "id": 5,
-      "first_name": "Tudor",
-      "last_name": "Siviour",
+      "name": "Tudor Siviour",
       "email": "tsiviour4@ning.com",
-      "password": "dnjS1k0GFbwk",
-      "role": true
+      "password": "dnjS1k0GFbwk"
     },
     {
       "id": 6,
-      "first_name": "Shari",
-      "last_name": "Goodyer",
+      "name": "Shari Goodyer",
       "email": "sgoodyer5@google.com.hk",
-      "password": "6LgBSghYV",
-      "role": true
+      "password": "6LgBSghYV"
     },
     {
       "id": 7,
-      "first_name": "Orsola",
-      "last_name": "Donne",
+      "name": "Orsola Donne",
       "email": "odonne6@digg.com",
-      "password": "DKgXPZ05",
-      "role": true
+      "password": "DKgXPZ05"
     },
     {
       "id": 8,
-      "first_name": "Elvira",
-      "last_name": "Reiner",
+      "name": "Elvira Reiner",
       "email": "ereiner7@timesonline.co.uk",
-      "password": "RFYzJVBf",
-      "role": true
+      "password": "RFYzJVBf"
     },
     {
       "id": 9,
-      "first_name": "Lonnard",
-      "last_name": "Schirak",
+      "name": "Lonnard Schirak",
       "email": "lschirak8@sciencedirect.com",
-      "password": "VTh2GfYO5r",
-      "role": true
+      "password": "VTh2GfYO5r"
     },
     {
       "id": 10,
-      "first_name": "Oren",
-      "last_name": "Arter",
+      "name": "Oren Arter",
       "email": "oarter9@gravatar.com",
-      "password": "umaebLz",
-      "role": true
+      "password": "umaebLz"
+    },
+    {
+      "name": "Cody Kull2222",
+      "email": "ckull0@hubpages.coccm",
+      "password": "13mwhRqigcchz",
+      "id": 11
+    },
+    {
+      "name": "Ore",
+      "email": "oarter9@.com",
+      "password": "b",
+      "id": 12
+    },
+    {
+      "name": "Omar Aloui",
+      "email": "z@z",
+      "password": "123",
+      "id": 13
+    },
+    {
+      "name": "Omar Aloui",
+      "email": "k@k",
+      "password": "123",
+      "id": 14
+    },
+    {
+      "name": "Omar Aloui",
+      "email": "l@l",
+      "password": "123",
+      "id": 15
+    },
+    {
+      "name": "Omar Aloui",
+      "email": "jon@gmail.com",
+      "password": "123",
+      "id": 16
+    },
+    {
+      "name": "Omar Aloui",
+      "email": "p@p",
+      "password": "123",
+      "id": 17
+    },
+    {
+      "name": "Omar Aloui",
+      "email": "lm@l",
+      "password": "123",
+      "id": 18
+    },
+    {
+      "name": "Omar Aloui",
+      "email": "s@s",
+      "password": "123",
+      "id": 19
     }
   ]
 }

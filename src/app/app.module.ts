@@ -1,3 +1,4 @@
+import { RegisterModule } from './register/register.module';
 import { StatModule } from './main/manager/stat/stat.module';
 import { AuthGuard } from './services/auth-guard.service';
 import { LogoutModule } from './logout/logout.module';
@@ -62,6 +63,7 @@ const appRoutes: Routes = [
         
         LoginModule,
         LogoutModule,
+        RegisterModule,
         StatModule,
         BrowserModule,
         BrowserAnimationsModule,

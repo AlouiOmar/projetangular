@@ -20,6 +20,7 @@ import {Router} from "@angular/router"
     myId: any;
     book : Mission;
     date: Date;
+    test:string;
 
     // Private
     private _unsubscribeAll: Subject<any>;
@@ -56,34 +57,38 @@ import {Router} from "@angular/router"
     ngOnInit(): void
     {
 
-        
+        // this.book=new Mission();
+        this.missionService.getDataById(this.myId).subscribe(data => {
+            this.book=data;}
+        );
+        //this.book.id='5';
         // Reactive Form
         
-        this.form = this._formBuilder.group({
+        // this.form = this._formBuilder.group({
             
-            id : [this.myId, Validators.required],
-            name  : new FormControl('', Validators.required) ,
-            category   : ['', Validators.required],
-            date  : [new Date(), Validators.required],
-            description      : ['', Validators.required],
-            author      : ['', Validators.required],
+        //     id : [this.myId, Validators.required],
+        //     name  : new FormControl('', Validators.required) ,
+        //     category   : ['', Validators.required],
+        //     date  : [new Date(), Validators.required],
+        //     description      : ['', Validators.required],
+        //     author      : ['', Validators.required],
             
-        });
+        // });
 
-        this.missionService.getDataById(this.myId).subscribe(data => {
-            console.log(data);
-            this.book=data;
-            this.form.controls['id'].setValue(this.book.id);
-            this.form.controls['name'].setValue(this.book.name);
-            this.form.controls['category'].setValue(this.book.category);
-            this.date = new Date(this.book.date);
-            let dd=this.datepipe.transform(this.book.date, 'MM/dd/yyyy');
-            console.log(dd);
-            this.form.controls['date'].setValue(dd);
-            this.form.controls['description'].setValue(this.book.description);
-            this.form.controls['author'].setValue(this.book.author);
-            this.form.setValue(data);
-        });
+        // this.missionService.getDataById(this.myId).subscribe(data => {
+        //     console.log(data);
+        //     this.book=data;
+        //     this.form.controls['id'].setValue(this.book.id);
+        //     this.form.controls['name'].setValue(this.book.name);
+        //     this.form.controls['category'].setValue(this.book.category);
+        //     this.date = new Date(this.book.date);
+        //     let dd=this.datepipe.transform(this.book.date, 'MM/dd/yyyy');
+        //     console.log(dd);
+        //     this.form.controls['date'].setValue(dd);
+        //     this.form.controls['description'].setValue(this.book.description);
+        //     this.form.controls['author'].setValue(this.book.author);
+        //     this.form.setValue(data);
+        // });
         
 
 
@@ -102,14 +107,15 @@ import {Router} from "@angular/router"
     // -----------------------------------------------------------------------------------------------------
     // @ Public methods
     // -----------------------------------------------------------------------------------------------------
-    onSubmit(data): void {
-        console.log(data);
-        data.id = this.myId;
-        this.missionService.putData(data, this.myId).subscribe((resp) => {
-        console.log(resp);
-        this.router.navigate(['/manager/mission/list']);
-     } );
-        console.warn('Your vehicule has been updated', data);
+    onSubmit(): void {
+        // console.log(this.test)
+        // console.log(this.book);
+         //data.id = this.myId;
+         this.missionService.putData(this.book, this.myId).subscribe((resp) => {
+         console.log(resp);
+         this.router.navigate(['/manager/mission/list']);
+      } );
+     console.warn('Your vehicule has been updated', this.book);
     }
 
 }

@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { MissionService } from './../service/mission.service';
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subject} from "rxjs";
 import {FuseSidebarService} from "../../../../../@fuse/components/sidebar/sidebar.service";
@@ -13,7 +15,7 @@ import {FuseSidebarService} from "../../../../../@fuse/components/sidebar/sideba
 {
     selected: any;
     pathArr: string[];
-
+    sr:string;
     // Private
     private _unsubscribeAll: Subject<any>;
 
@@ -23,7 +25,9 @@ import {FuseSidebarService} from "../../../../../@fuse/components/sidebar/sideba
      * @param {FuseSidebarService} _fuseSidebarService
      */
     constructor(
-        private _fuseSidebarService: FuseSidebarService
+        private _fuseSidebarService: FuseSidebarService,
+        private missionService: MissionService,
+        private router: Router
     )
     {
         // Set the private defaults
@@ -39,6 +43,7 @@ import {FuseSidebarService} from "../../../../../@fuse/components/sidebar/sideba
      */
     ngOnInit(): void
     {
+        this.sr="";
         /*this._fileManagerService.onFileSelected
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe(selected => {
@@ -71,5 +76,12 @@ import {FuseSidebarService} from "../../../../../@fuse/components/sidebar/sideba
     {
         this._fuseSidebarService.getSidebar(name).toggleOpen();
     }
+
+    search(){
+        // console.log(this.sr)
+        // console.log(this.missionService.search(this.sr))
+        this.router.navigate(['/manager/mission/search/'+this.sr]);
+    }
+
 }
 
